@@ -13,7 +13,10 @@ def result():
        result['Name']=request.form.get('name')
        result['StudentNumber']=request.form.get('StudentNumber')
        result['Gender']=request.form.get('Gender')
-       
+       result['Gender'] =  ','.join(result['Gender'])
+       result['Major']=request.form.get('Major')
+       result['languages'] = request.form.getlist('languages')
+       result['languages'] =  ','.join(result['languages'])
        return render_template('result.html',result=result)
 
 if __name__ =='__main__':
