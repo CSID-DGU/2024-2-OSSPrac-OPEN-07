@@ -1,60 +1,31 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-# 메인 입력 페이지 경로
+# 최초 메인 페이지를 보여주는 루트 경로
 @app.route('/')
-def input():
-    return render_template('input.html')
-
-# 결과 페이지 경로 - 입력한 팀원 정보를 출력
-@app.route('/result', methods=['POST', 'GET'])
-def result():
-    if request.method == 'POST':
-        result = dict()
-        result['TeamName'] = request.form.get('TeamName')
-        
-        # 팀장 정보
-        leader = {
-            'Name': request.form.get('leader_name'),
-            'Role': 'Team Leader',
-            'Department': request.form.get('leader_department'),
-            'Phone': request.form.get('leader_phone'),
-            'Email': request.form.get('leader_email')
-        }
-        
-        # 팀원 1 정보
-        member1 = {
-            'Name': request.form.get('member1_name'),
-            'Role': 'Gender Specialist',
-            'Department': request.form.get('member1_department'),
-            'Phone': request.form.get('member1_phone'),
-            'Email': request.form.get('member1_email')
-        }
-        
-        # 팀원 2 정보
-        member2 = {
-            'Name': request.form.get('member2_name'),
-            'Role': 'Programming Languages Specialist',
-            'Department': request.form.get('member2_department'),
-            'Phone': request.form.get('member2_phone'),
-            'Email': request.form.get('member2_email')
-        }
-        
-        result['Leader'] = leader
-        result['Members'] = [member1, member2]
-        
-        return render_template('result.html', result=result)
-
-# 새로운 경로 추가 - 인덱스 페이지 (메인 페이지)
-@app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('app_index.html')  # 위 HTML 코드를 form.html 파일로 저장해야 합니다
 
-# 새로운 경로 추가 - 연락처 페이지
+# 학생 정보를 입력하는 경로
+
+@app.route('/input')
+def input():
+    return render_template('app_input.html')
+
+# 제출된 데이터를 처리하여 출력하는 경로
+@app.route('/result', methods=['POST'])
+def result():
+    # 각 학생의 이름과 학번 데이터를 리스트로 받음
+    names = request.form.getlist('name[]')
+    student_numbers = request.form.getlist('StudentNumber[]')
+
+    # 데이터를 템플릿으로 전달하여 출력 페이지 생성
+    return render_template('app_result.html', students=zip(names, student_numbers))
+
 @app.route('/contact')
-def contact():
-    return render_template('contact.html')
+def contact_info():
+    return render_template('app_contact.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
