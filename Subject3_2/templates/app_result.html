@@ -36,7 +36,7 @@
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, role, student_number, student_email, major in students %}
+        {% for name, role, student_number, student_email, major,git in students %}
             <div class="student-block">
                 <img src="/static/uploads/default_image.jpg" alt="기본 이미지" style="width:100px; height:100px; border-radius:50%;">
                 <p><strong>이름:</strong> {{ name }}</p>
@@ -44,6 +44,8 @@
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>이메일:</strong> {{ student_email }}</p>
                 <p><strong>학과:</strong> {{ major }}</p>
+                <p><strong>Github:</strong> {{ git }}</p>
+        
             </div>
         {% endfor %}
     </div>
