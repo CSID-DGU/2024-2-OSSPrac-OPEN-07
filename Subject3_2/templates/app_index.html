@@ -1,9 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>팀 구성원 정보 출력</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <title>학생 정보 출력</title>
     <style>
         .container {
             display: flex;
@@ -20,7 +21,7 @@
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        h1, h3, h5 {
             text-align: center;
         }
     </style>
@@ -31,25 +32,27 @@
         function openContactPage() {
             window.open("/contact", "contactPage", "width=600,height=400");
         }
+        function openInputPage() {
+            window.open("/input", "InputPage", "width=800,height=600");
+        }
     </script>
 </head>
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, role, student_number, student_email, major in students %}
-            <div class="student-block">
-                <img src="/static/uploads/default_image.jpg" alt="기본 이미지" style="width:100px; height:100px; border-radius:50%;">
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>역할:</strong> {{ role }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
-                <p><strong>이메일:</strong> {{ student_email }}</p>
-                <p><strong>학과:</strong> {{ major }}</p>
-            </div>
-        {% endfor %}
+        <div class="student-block">
+            <p><strong>이름:</strong> </p>
+            <p><strong>역할:</strong> </p>
+            <p><strong>학번:</strong> </p>
+            <p><strong>이메일:</strong> </p>
+            <p><strong>전공:</strong> </p>
+        </div>        
     </div>
+    <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
     <footer>
         <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
             <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-    </footer> 
+    </footer>
 </body>
 </html>
+
