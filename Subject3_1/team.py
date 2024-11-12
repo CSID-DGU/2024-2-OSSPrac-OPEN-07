@@ -22,6 +22,9 @@ def result():
     student_numbers = request.form.getlist('StudentNumber[]')
     student_email = request.form.getlist('email[]')
     major = request.form.getlist('major[]')
+    default_photo_url = url_for('static', filename='uploads/default_image.jpg')
+    photo_urls = [default_photo_url] * len(names)
+
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
     return render_template('app_result.html', students=zip(names,role, student_numbers,student_email,major))
