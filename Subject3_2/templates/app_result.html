@@ -38,6 +38,7 @@
     <div class="container">
         {% for name, role, student_number, student_email, major in students %}
             <div class="student-block">
+                <img src="/static/uploads/default_image.jpg" alt="기본 이미지" style="width:100px; height:100px; border-radius:50%;">
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>역할:</strong> {{ role }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
