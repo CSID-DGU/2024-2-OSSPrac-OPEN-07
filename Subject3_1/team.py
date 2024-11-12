@@ -1,7 +1,6 @@
-from flask import Flask, request, render_template, url_for 
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/uploads'  # 사진 파일을 저장할 폴더
 
 
 # 최초 메인 페이지를 보여주는 루트 경로
@@ -25,9 +24,6 @@ def result():
     student_email = request.form.getlist('email[]')
     major = request.form.getlist('major[]')
     
-    default_photo_url = url_for('static', filename='uploads/default_image.jpg')
-    photo_urls = [default_photo_url] * len(names)
-
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
     return render_template('app_result.html', students=zip(names,role, student_numbers,student_email,major))
