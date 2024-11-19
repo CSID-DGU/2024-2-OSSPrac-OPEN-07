@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+<body>
+    <form action="/result" method="POST">
+        <!-- Name -->
+        <p><b>* Name</b> <input type="text" name="Name" required></p>
+        
+        <!-- Student Number -->
+        <p><b>* Student Number</b> <input type="text" id="StudentNumber" name="StudentNumber" required></p>
+        
+        <!-- Major -->
+        <p><b>* Major</b> <input type="text" name="Major" required></p>
+        
+        <!-- Email -->
+        <p><b>* Email</b>
+            <input type="text" name="Email" required>
+            @
+            <select name="EmailDomain" required>
+                <option value="" disabled selected>선택</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="yahoo.com">dgu.ac.kr</option>
+                <option value="daum.net">daum.net</option>
+            </select>
+        </p>
+        
+        <!-- Gender -->
+        <p><b>Gender</b></p>
+        <label><input type="radio" value="Male" name="Gender" required> Male</label>
+        <label><input type="radio" value="Female" name="Gender"> Female</label>
+        
+        <!-- Programming Languages -->
+        <p><b>Programming Languages</b></p>
+        <label><input type="checkbox" value="Python" name="languages"> Python</label>
+        <label><input type="checkbox" value="Java" name="languages"> Java</label>
+        <label><input type="checkbox" value="HTML" name="languages"> HTML</label>
+        <label><input type="checkbox" value="C++" name="languages"> C++</label>
+        
+        <!-- Submit -->
+        <p><button type="submit" name="submit" value="submit">submit</button></p>
+    </form>
+</body>
+</html>
