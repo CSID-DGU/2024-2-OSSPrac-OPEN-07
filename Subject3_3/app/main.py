@@ -13,6 +13,9 @@ def result():
        result['Name']=request.form.get('Name')
        result['StudentNumber']=request.form.get('StudentNumber')
        result['Major']=request.form.get('Major')
+       Email = request.form.get('Email')  
+       Email_domain = request.form.get('EmailDomain')  
+       result['Email'] = Email + '@' + Email_domain 
        result['Gender'] = request.form.getlist('Gender')
        result['Gender'] =  ','.join(result['Gender'])
        result['languages'] = request.form.getlist('languages')
