@@ -6,13 +6,13 @@ services: # 아래는 서비스 정의
    frontapp:                   # service1의 명칭  
       # 서비스 빌드를 위한 정의 내용
       build: ./FrontEnd
-      image: ${DOCKER_USR}/frontapp:latest
+      image: kimsungsoo/frontapp:latest
       ports: 
          - "80:5000"
 
    backapp:                   # service2의 명칭  
       # 서비스 빌드를 위한 정의 내용
       build: ./BackEnd
-      image: ${DOCKER_USR}/backapp:latest
+      image: kimsungsoo/backapp:latest
       ports: 
          - "5000:5000"
