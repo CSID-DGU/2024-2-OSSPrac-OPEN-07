@@ -1,9 +1,0 @@
-version: "3.0"
-  
-services:
-  web:
-    build: .
-    image:  kimsungsoo/prac12w
-    ports:
-      - "5000:5000"
-
